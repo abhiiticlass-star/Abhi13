@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from signal_engine import generate_signal
 
 app = Flask(__name__)
@@ -6,10 +6,16 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return jsonify({
-        "status": "online",
-        "name": "ABHI SIGNALS BACKEND"
-    })
+    return send_from_directory(".", "index.html")
+    
+@app.route("/style.css")
+def style():
+    return send_from_directory(".", "style.css")
+
+
+@app.route("/script.js")
+def script():
+    return send_from_directory(".", "script.js")
 
 
 @app.route("/health")
