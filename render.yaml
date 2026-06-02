@@ -1,0 +1,16 @@
+services:
+  - type: web
+
+    name: abhi-signals-backend
+
+    runtime: python
+
+    buildCommand: |
+      pip install -r requirements.txt
+
+    startCommand: |
+      gunicorn app:app
+
+    plan: free
+
+    autoDeploy: true
