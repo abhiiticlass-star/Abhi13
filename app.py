@@ -37,22 +37,14 @@ def get_signal(pair):
 
     except Exception as e:
 
-        return jsonify({
+    import traceback
 
-            "pair": pair,
+    return jsonify({
 
-            "signal": "AVOID",
+        "error": str(e),
 
-            "score": 50,
-
-            "trend": "Neutral",
-
-            "trendM5": "Neutral",
-
-            "market": "open",
-
-            "error": str(e)
-        })
+        "trace": traceback.format_exc()
+    })
 
 
 if __name__ == "__main__":
