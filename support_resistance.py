@@ -94,10 +94,11 @@ def resistance_rejection(df):
 # ==========================================
 
 def zone_strength(df):
+def zone_strength(df):
 
-    support = get_support(df)
+    support = float(get_support(df))
 
-    resistance = get_resistance(df)
+    resistance = float(get_resistance(df))
 
     closes = df["Close"].tail(50)
 
@@ -106,11 +107,18 @@ def zone_strength(df):
 
     for price in closes:
 
-        if abs(price - support) < support * 0.002:
-            support_hits += 1
+        try:
 
-        if abs(price - resistance) < resistance * 0.002:
-            resistance_hits += 1
+            price = float(price)
+
+            if abs(price - support) < support * 0.002:
+                support_hits += 1
+
+            if abs(price - resistance) < resistance * 0.002:
+                resistance_hits += 1
+
+        except:
+            pass
 
     return {
         "support_hits": support_hits,
