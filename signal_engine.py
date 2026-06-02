@@ -232,10 +232,10 @@ def get_m5_trend(pair):
 
 def decide_signal(score):
 
-    if score >= 75:
+    if score >= 60:
         return "CALL"
 
-    if score <= 25:
+    if score <= 40:
         return "PUT"
 
     return "AVOID"
