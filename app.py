@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-
     return jsonify({
         "status": "online",
         "name": "ABHI SIGNALS BACKEND"
@@ -15,7 +14,6 @@ def home():
 
 @app.route("/health")
 def health():
-
     return jsonify({
         "status": "healthy"
     })
@@ -37,14 +35,12 @@ def get_signal(pair):
 
     except Exception as e:
 
-    import traceback
+        import traceback
 
-    return jsonify({
-
-        "error": str(e),
-
-        "trace": traceback.format_exc()
-    })
+        return jsonify({
+            "error": str(e),
+            "trace": traceback.format_exc()
+        })
 
 
 if __name__ == "__main__":
