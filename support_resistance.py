@@ -94,7 +94,6 @@ def resistance_rejection(df):
 # ==========================================
 
 def zone_strength(df):
-def zone_strength(df):
 
     support = float(get_support(df))
 
